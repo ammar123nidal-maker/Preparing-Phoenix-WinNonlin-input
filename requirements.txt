@@ -1,2 +1,6 @@
 matplotlib
 roman
+pandas
+openpyxl
+streamlit
+
