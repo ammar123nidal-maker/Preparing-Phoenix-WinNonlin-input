@@ -131,7 +131,7 @@ if mode == "📅 Schedule Time Input":
 
 elif mode == "⏰ Actual Time Input":
     st.subheader("تحضير Actual Time Input")
-    file_subjects = st.file_uploader("ارفع ملف Subjects (Excel)", type=["xlsx", "xls"], key="subjects")
+    file_subjects = st.file_uploader("ارفع ملف Schedual_Time_Input (Excel)", type=["xlsx", "xls"], key="subjects")
     file_variation = st.file_uploader("ارفع ملف Variations (Excel)", type=["xlsx", "xls"], key="variation")
 
     schedule_times_input = st.text_input("Schedule times (افصل بينها بفواصل):", "0.5,1.0,2.0")
