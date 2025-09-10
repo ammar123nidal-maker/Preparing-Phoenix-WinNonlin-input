@@ -58,7 +58,7 @@ def prepare_actual_time(subjects_df, variation_df, schedule_times):
             if sample_no not in time_to_number_map:
                 continue
 
-            original_time = time_tnumber_map[sample_no]
+            original_time = time_to_number_map[sample_no]
 
             diff = timedelta(hours=actual_time.hour, minutes=actual_time.minute, seconds=actual_time.second) - \
                    timedelta(hours=schedule_time.hour, minutes=schedule_time.minute, seconds=schedule_time.second)
