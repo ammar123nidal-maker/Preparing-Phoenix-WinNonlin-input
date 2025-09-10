@@ -47,8 +47,6 @@ def prepare_actual_time(subjects_df, variation_df, schedule_times):
     time_to_number_map = {i + 1: time for i, time in enumerate(schedule_times)}
 
     variation_df['Study Stage (Period)'] = variation_df['Study Stage (Period)'].apply(lambda x: roman.fromRoman(str(x)))
-   
-    from datetime import datetime, time
 
     variation_df['Schedule Time'] = pd.to_datetime(variation_df['Schedule Time'], format='%H:%M', errors='coerce').dt.time
     variation_df['Actual Time'] = pd.to_datetime(variation_df['Actual Time'], format='%H:%M', errors='coerce').dt.time
