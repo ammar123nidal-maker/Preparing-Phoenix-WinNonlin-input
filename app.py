@@ -48,8 +48,8 @@ def prepare_actual_time(subjects_df, variation_df, schedule_times):
 
     variation_df['Study Stage (Period)'] = variation_df['Study Stage (Period)'].apply(lambda x: roman.fromRoman(str(x)))
    
-    df['Schedule Time'] = pd.to_datetime(df['Schedule Time'], errors='coerce')
-    df['Actual Time']   = pd.to_datetime(df['Actual Time'], errors='coerce')
+    df['Schedule Time'] = pd.to_datetime(df['Schedule Time'], errors='coerce').dt.time
+    df['Actual Time']   = pd.to_datetime(df['Actual Time'], errors='coerce').dt.time
 
     results = []
     for _, row in variation_df.iterrows():
