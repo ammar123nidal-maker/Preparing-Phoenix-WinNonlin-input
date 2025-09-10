@@ -48,9 +48,7 @@ def prepare_actual_time(subjects_df, variation_df, schedule_times):
 
     variation_df['Study Stage (Period)'] = variation_df['Study Stage (Period)'].apply(lambda x: roman.fromRoman(str(x)))
 
-    variation_df['Schedule Time'] = pd.to_datetime(variation_df['Schedule Time'], format='%H:%M', errors='coerce').dt.time
-    variation_df['Actual Time'] = pd.to_datetime(variation_df['Actual Time'], format='%H:%M', errors='coerce').dt.time
-
+    
     results = []
     for _, row in variation_df.iterrows():
         try:
@@ -61,7 +59,7 @@ def prepare_actual_time(subjects_df, variation_df, schedule_times):
             if sample_no not in time_to_number_map:
                 continue
 
-            original_time = time_to_number_map[sample_no]
+            original_time = time_tnumber_map[sample_no]
 
             diff = timedelta(hours=actual_time.hour, minutes=actual_time.minute, seconds=actual_time.second) - \
                    timedelta(hours=schedule_time.hour, minutes=schedule_time.minute, seconds=schedule_time.second)
