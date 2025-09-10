@@ -58,8 +58,8 @@ def safe_to_time(val):
         # لو مش صالحة، نرجع وقت افتراضي أو None حسب ما تحب
         return time(0, 0, 0)  # أو return None
 
-variation_df['Schedule Time'] = variation_df['Schedule Time'].apply(safe_to_time)
-variation_df['Actual Time']   = variation_df['Actual Time'].apply(safe_to_time)
+    variation_df['Schedule Time'] = variation_df['Schedule Time'].apply(safe_to_time)
+    variation_df['Actual Time']   = variation_df['Actual Time'].apply(safe_to_time)
 
     results = []
     for _, row in variation_df.iterrows():
