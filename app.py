@@ -159,7 +159,7 @@ elif mode == "⏰ Actual Time Input":
             final_df = prepare_actual_time(subjects_df, variation_df, schedule_times)
 
             st.success("تم تعديل الأوقات بنجاح ✅")
-            st.dataframe(final_df.head())
+            #st.dataframe(final_df.head())
 
             buffer = BytesIO()
             final_df.to_excel(buffer, index=False, engine='openpyxl')
