@@ -48,8 +48,18 @@ def prepare_actual_time(subjects_df, variation_df, schedule_times):
 
     variation_df['Study Stage (Period)'] = variation_df['Study Stage (Period)'].apply(lambda x: roman.fromRoman(str(x)))
    
-    variation_df['Schedule Time'] = pd.to_datetime(variation_df['Schedule Time'], errors='coerce').dt.time
-    variation_df['Actual Time']   = pd.to_datetime(variation_df['Actual Time'], errors='coerce').dt.time
+    from datetime import datetime, time
+
+def safe_to_time(val):
+    try:
+        # لو القيمة صالحة للتحويل إلى وقت
+        return pd.to_datetime(val).time()
+    except:
+        # لو مش صالحة، نرجع وقت افتراضي أو None حسب ما تحب
+        return time(0, 0, 0)  # أو return None
+
+variation_df['Schedule Time'] = variation_df['Schedule Time'].apply(safe_to_time)
+variation_df['Actual Time']   = variation_df['Actual Time'].apply(safe_to_time)
 
     results = []
     for _, row in variation_df.iterrows():
